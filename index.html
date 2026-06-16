@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Masters Competition Leaderboard</title>
+  <title>US Open Competition Leaderboard</title>
   <style>
     :root {
-      --bg: #f4efe4;
-      --surface: #fffaf0;
-      --surface-2: #f8f1df;
-      --ink: #1f2a1f;
-      --muted: #5f6b5f;
-      --accent: #1b5e20;
-      --accent-2: #c59d2a;
-      --border: #dccfae;
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-2: #eaf0f8;
+      --ink: #10233f;
+      --muted: #54657c;
+      --accent: #174a8b;
+      --accent-2: #c82333;
+      --border: #ccd6e5;
     }
     * { box-sizing: border-box; }
     body {
@@ -21,8 +21,8 @@
       font-family: Georgia, "Times New Roman", serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(197,157,42,0.20), transparent 28%),
-        linear-gradient(180deg, #efe4c4 0%, var(--bg) 38%, #f7f2e7 100%);
+        radial-gradient(circle at top left, rgba(200,35,51,0.14), transparent 28%),
+        linear-gradient(180deg, #e6eef9 0%, var(--bg) 42%, #f8fbff 100%);
     }
     .wrap {
       max-width: 1400px;
@@ -30,11 +30,11 @@
       padding: 24px;
     }
     .hero {
-      background: linear-gradient(135deg, rgba(27,94,32,0.96), rgba(16,61,20,0.92));
+      background: linear-gradient(135deg, rgba(15,55,105,0.98), rgba(178,34,52,0.92));
       color: white;
       border-radius: 22px;
       padding: 28px 30px;
-      box-shadow: 0 20px 45px rgba(27,94,32,0.22);
+      box-shadow: 0 20px 45px rgba(16,42,82,0.24);
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
       gap: 24px;
@@ -114,9 +114,9 @@
       gap: 8px;
       padding: 12px 16px;
       border-radius: 999px;
-      background: rgba(197,157,42,0.18);
-      border: 1px solid rgba(197,157,42,0.35);
-      color: #fff4d1;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.26);
+      color: #f7fbff;
       font-size: 14px;
       font-weight: 700;
     }
@@ -133,7 +133,7 @@
     .panel {
       margin-top: 22px;
       background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(220,207,174,0.8);
+      border: 1px solid rgba(204,214,229,0.9);
       border-radius: 18px;
       overflow: hidden;
       backdrop-filter: blur(6px);
@@ -166,7 +166,7 @@
       background: rgba(255,255,255,0.55);
     }
     tbody tr:hover {
-      background: rgba(197,157,42,0.12);
+      background: rgba(200,35,51,0.08);
     }
     tbody tr.hidden {
       display: none;
@@ -204,9 +204,9 @@
   <div class="wrap">
     <section class="hero">
       <div class="hero-main">
-        <div class="eyebrow">Masters Competition</div>
+        <div class="eyebrow">US Open Competition</div>
         <h1>Leaderboard</h1>
-        <div class="sub">Best 5 of 8 each round. Updated automatically from ESPN scores.</div>
+        <div class="sub">Best 5 of 10 each round. Updated automatically from ESPN scores.</div>
         <div class="status-bar">
           <span class="status-dot"></span>
           <span class="status-meta">Last updated: 2026-04-12 23:57:50 GMT Summer Time</span>
