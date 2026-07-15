@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>US Open Competition Leaderboard</title>
+  <title>The Open Championship Competition Leaderboard</title>
   <style>
     :root {
-      --bg: #f4f7fb;
+      --navy-950: #031426;
+      --navy-900: #07213d;
+      --navy-800: #0a3158;
+      --navy-700: #12466f;
+      --bg: #e9eef3;
       --surface: #ffffff;
-      --surface-2: #eaf0f8;
-      --ink: #10233f;
-      --muted: #54657c;
-      --accent: #174a8b;
-      --accent-2: #c82333;
-      --border: #ccd6e5;
+      --surface-2: #dce5ed;
+      --ink: #071b30;
+      --muted: #53677a;
+      --accent: #0a3158;
+      --accent-2: #c9a85c;
+      --border: #c6d1dc;
     }
     * { box-sizing: border-box; }
     body {
@@ -21,8 +25,9 @@
       font-family: Georgia, "Times New Roman", serif;
       color: var(--ink);
       background:
-        radial-gradient(circle at top left, rgba(200,35,51,0.14), transparent 28%),
-        linear-gradient(180deg, #e6eef9 0%, var(--bg) 42%, #f8fbff 100%);
+        radial-gradient(circle at 12% 0%, rgba(34,92,139,0.45), transparent 30%),
+        linear-gradient(180deg, var(--navy-950) 0, var(--navy-900) 340px, var(--bg) 340px, #f6f8fa 100%);
+      min-height: 100vh;
     }
     .wrap {
       max-width: 1400px;
@@ -30,15 +35,27 @@
       padding: 24px;
     }
     .hero {
-      background: linear-gradient(135deg, rgba(15,55,105,0.98), rgba(178,34,52,0.92));
+      position: relative;
+      background:
+        linear-gradient(115deg, rgba(255,255,255,0.045) 0 1px, transparent 1px 72px),
+        linear-gradient(135deg, var(--navy-800), var(--navy-950));
       color: white;
-      border-radius: 22px;
+      border: 1px solid rgba(201,168,92,0.42);
+      border-radius: 18px;
       padding: 28px 30px;
-      box-shadow: 0 20px 45px rgba(16,42,82,0.24);
+      box-shadow: 0 24px 54px rgba(0,10,25,0.38);
       display: grid;
       grid-template-columns: minmax(0, 1fr) auto;
       gap: 28px;
       align-items: start;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      pointer-events: none;
     }
     .hero-main {
       min-width: 0;
@@ -47,13 +64,18 @@
       font-size: 12px;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      opacity: 0.8;
+      color: #e2c77e;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      opacity: 1;
       margin-bottom: 10px;
     }
     h1 {
       margin: 0;
       font-size: clamp(32px, 5vw, 54px);
       line-height: 0.95;
+      font-weight: 500;
+      text-wrap: balance;
     }
     .sub {
       margin-top: 12px;
@@ -77,8 +99,8 @@
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #d6ff7f;
-      box-shadow: 0 0 0 6px rgba(214,255,127,0.18);
+      background: #e2c77e;
+      box-shadow: 0 0 0 6px rgba(226,199,126,0.16);
       flex: 0 0 auto;
     }
     .status-meta {
@@ -120,12 +142,12 @@
       width: min(360px, 100%);
       justify-self: end;
       align-self: start;
-      background: rgba(255,255,255,0.92);
+      background: rgba(250,248,240,0.96);
       color: var(--ink);
-      border: 1px solid rgba(255,255,255,0.55);
+      border: 1px solid rgba(226,199,126,0.65);
       border-radius: 8px;
       overflow: hidden;
-      box-shadow: 0 18px 34px rgba(12,28,58,0.22);
+      box-shadow: 0 18px 34px rgba(0,10,25,0.3);
     }
     .prize-table {
       width: 100%;
@@ -143,8 +165,8 @@
     }
     .prize-table thead th {
       position: static;
-      background: #f7f9fc;
-      color: #111827;
+      background: var(--navy-900);
+      color: #ffffff;
       text-align: center;
       font-size: 13px;
       letter-spacing: 0;
@@ -162,27 +184,27 @@
       font-weight: 500;
     }
     .prize-rank-1 td:first-child {
-      background: #f7c65a;
+      background: #d7b766;
       color: #111827;
       font-weight: 800;
       text-align: center;
     }
     .prize-rank-2 td:first-child {
-      background: #f2a23a;
+      background: #b9c2cb;
       color: #111827;
       font-weight: 800;
       text-align: center;
     }
     .prize-rank-3 td:first-child {
-      background: #9a4f08;
+      background: #9b7047;
       color: #ffffff;
       font-weight: 800;
       text-align: center;
     }
     .panel {
       margin-top: 22px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(204,214,229,0.9);
+      background: rgba(255,255,255,0.88);
+      border: 1px solid rgba(198,209,220,0.95);
       border-radius: 18px;
       overflow: hidden;
       backdrop-filter: blur(6px);
@@ -198,8 +220,8 @@
     thead th {
       position: sticky;
       top: 0;
-      background: var(--surface-2);
-      color: var(--accent);
+      background: var(--navy-900);
+      color: #ffffff;
       font-size: 13px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -215,7 +237,7 @@
       background: rgba(255,255,255,0.55);
     }
     tbody tr:hover {
-      background: rgba(200,35,51,0.08);
+      background: rgba(201,168,92,0.18);
     }
     tbody tr.hidden {
       display: none;
@@ -252,12 +274,12 @@
   <div class="wrap">
     <section class="hero">
       <div class="hero-main">
-        <div class="eyebrow">US Open Competition</div>
-        <h1>Leaderboard</h1>
+        <div class="eyebrow">The Open Championship</div>
+        <h1>Competition Leaderboard</h1>
         <div class="sub">Best 5 of 10 each round. Updated automatically from ESPN scores.</div>
         <div class="status-bar">
           <span class="status-dot"></span>
-          <span class="status-meta">Last updated: 2026-06-22 09:36:01 GMT Summer Time</span>
+          <span class="status-meta">Last updated: 2026-07-15 18:09:33 GMT Summer Time</span>
         </div>
         <div class="hero-tools">
           <input id="leaderboard-search" class="search-input" type="search" placeholder="Search entrant name...">
@@ -922,7 +944,7 @@
         </table>
       </div>
     </section>
-    <div class="footer">Generated at 2026-06-22 09:36:01 GMT Summer Time. Source: https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=20260618</div>
+    <div class="footer">Generated at 2026-07-15 18:09:33 GMT Summer Time. Source: https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=20260618</div>
   </div>
   <script>
     const searchInput = document.getElementById('leaderboard-search');
